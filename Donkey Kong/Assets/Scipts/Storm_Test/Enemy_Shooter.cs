@@ -10,6 +10,7 @@ public class Enemy_Shooter : MonoBehaviour
     [SerializeField] float Tijd;
 
 
+
     // Start is called before the first frame update
     void Start()
     {

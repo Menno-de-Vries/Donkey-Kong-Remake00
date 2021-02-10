@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
     public float thrust = 10.0f;
     public Rigidbody2D rb2D;
     [SerializeField] float Tijd;
-
+    private float Teller;
 
 
     // Start is called before the first frame update
@@ -19,8 +19,13 @@ public class Bullet : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         //rb2D.AddForce(transform.right * thrust, ForceMode2D.Impulse);
+        Teller += Time.deltaTime;
+        if (Teller >= Tijd)
+        {
+            Destroy(gameObject);
+        }
     }
 }

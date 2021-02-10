@@ -136,3 +136,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrust: 10
   rb2D: {fileID: 6376102376242806849}
+  Tijd: 4
