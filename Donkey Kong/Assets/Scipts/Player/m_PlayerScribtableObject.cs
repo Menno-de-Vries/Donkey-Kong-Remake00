@@ -7,10 +7,11 @@ using UnityEngine;
 public class m_PlayerScribtableObject : ScriptableObject
 {
     [Header("Movement")]
-    [Tooltip("The speed the player moves with and Jump strenght")]
+    [Tooltip("The speed the player moves with and Jump strenght and going up the ladder")]
     public int m_Speed = 4;
     public float m_Jumphight = 4;
     public bool JumpAllowed = true;
+    public bool m_GoingUpTheLadder = false;
     [Header("Health")]
     [Tooltip("this is the amount of lives the player has")]
     public int m_Health = 3;
