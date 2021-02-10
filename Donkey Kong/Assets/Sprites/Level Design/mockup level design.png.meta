@@ -5,6 +5,12 @@ TextureImporter:
   - first:
       213: -5434268769456002154
     second: mockup level design_0
+  - first:
+      213: -2100204992134258924
+    second: mockup level design_1
+  - first:
+      213: 5899425554223758908
+    second: mockup level design_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -138,7 +144,7 @@ TextureImporter:
         width: 1920
         height: 2400
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -146,6 +152,48 @@ TextureImporter:
       bones: []
       spriteID: 69b639e98599594b0800000000000000
       internalID: -5434268769456002154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mockup level design_1
+      rect:
+        serializedVersion: 2
+        x: 1356
+        y: 884
+        width: 112
+        height: 154
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41fd550efa29ad2e0800000000000000
+      internalID: -2100204992134258924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mockup level design_2
+      rect:
+        serializedVersion: 2
+        x: 1269
+        y: 524
+        width: 118
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3e7e5af848fed150800000000000000
+      internalID: 5899425554223758908
       vertices: []
       indices: 
       edges: []

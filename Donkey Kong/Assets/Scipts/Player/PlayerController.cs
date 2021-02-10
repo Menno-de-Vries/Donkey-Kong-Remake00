@@ -20,15 +20,42 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         JumpNow();
+        RotatePlayer();
     }
 
     private void FixedUpdate()
     {
         m_playerstats.axis.x = Input.GetAxisRaw("Horizontal");
+        m_playerstats.axis.y = Input.GetAxisRaw("Vertical");
 
-        rb.velocity = new Vector3 (m_playerstats.axis.x * m_playerstats.m_Speed * Time.deltaTime, rb.velocity.y, 0);
+        if (m_playerstats.m_GoingUpTheLadder == false)
+        {
+            rb.velocity = new Vector3(m_playerstats.axis.x * m_playerstats.m_Speed * Time.deltaTime, rb.velocity.y, 0);
+        }
+        else
+        {
+            rb.velocity = new Vector3(m_playerstats.axis.x * m_playerstats.m_Speed * Time.deltaTime, m_playerstats.axis.y * m_playerstats.m_Speed * Time.deltaTime, 0);
+        }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ladder"))
+        {
+            m_playerstats.m_GoingUpTheLadder = true;
+            m_playerstats.JumpAllowed = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ladder"))
+        {
+            m_playerstats.m_GoingUpTheLadder = false;
+        }
+    }
+
+    #region jumping
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
@@ -36,7 +63,6 @@ public class PlayerController : MonoBehaviour
             m_playerstats.JumpAllowed = true;
         }
     }
-
 
     private void JumpNow()
     {
@@ -48,5 +74,19 @@ public class PlayerController : MonoBehaviour
             m_playerstats.JumpAllowed = false;
         }
     }
+    #endregion
 
+    #region Rotate with Movement
+    private void RotatePlayer()
+    {
+        if (m_playerstats.axis.x > 0)
+        {
+            transform.rotation = new Quaternion(transform.rotation.x, 0, transform.rotation.z, transform.rotation.w);
+        }
+        else if (m_playerstats.axis.x < 0)
+        {
+            transform.rotation = new Quaternion(transform.rotation.x, 180, transform.rotation.z, transform.rotation.w);
+        }
+    }
+    #endregion
 }

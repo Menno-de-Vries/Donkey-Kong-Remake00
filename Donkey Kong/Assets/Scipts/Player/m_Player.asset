@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: m_Player
   m_EditorClassIdentifier: 
   m_Speed: 175
-  m_Jumphight: 250
+  m_Jumphight: 285
   JumpAllowed: 1
+  m_GoingUpTheLadder: 0
   m_Health: 3
   axis: {x: 0, y: 0}
