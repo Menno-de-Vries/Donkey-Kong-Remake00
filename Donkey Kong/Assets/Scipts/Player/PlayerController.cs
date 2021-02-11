@@ -12,9 +12,13 @@ public class PlayerController : MonoBehaviour
     //RigidBody
     private Rigidbody2D rb;
 
+    //Scripts
+    private GameController controller;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        controller = FindObjectOfType<GameController>();
     }
 
     private void Update()
@@ -28,6 +32,7 @@ public class PlayerController : MonoBehaviour
         m_playerstats.axis.x = Input.GetAxisRaw("Horizontal");
         m_playerstats.axis.y = Input.GetAxisRaw("Vertical");
 
+        //Voor de beweging met als de player niet of wel collision heeft met een trigger van de ladder
         if (m_playerstats.m_GoingUpTheLadder == false)
         {
             rb.velocity = new Vector3(m_playerstats.axis.x * m_playerstats.m_Speed * Time.deltaTime, rb.velocity.y, 0);
@@ -45,6 +50,12 @@ public class PlayerController : MonoBehaviour
             m_playerstats.m_GoingUpTheLadder = true;
             m_playerstats.JumpAllowed = true;
         }
+
+        if (collision.gameObject.CompareTag("Pointer"))
+        {
+            controller.Scoring(10);
+        }
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -65,13 +76,14 @@ public class PlayerController : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Projectile_D"))
         {
-            TakeDamage(m_playerstats.m_Health -1);
+            TakeDamage(1);
         }
 
     }
 
     private void JumpNow()
     {
+        //Om te kunnen jumpen
         Vector2 Up = new Vector2(0, transform.position.y + m_playerstats.m_Jumphight);
         if (m_playerstats.JumpAllowed == true && Input.GetKey(KeyCode.Space))
         {
@@ -85,6 +97,7 @@ public class PlayerController : MonoBehaviour
     #region Rotate with Movement
     private void RotatePlayer()
     {
+        //Welke kan de player moet op kijken
         if (m_playerstats.axis.x > 0)
         {
             transform.rotation = new Quaternion(transform.rotation.x, 0, transform.rotation.z, transform.rotation.w);
@@ -96,9 +109,11 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
+    #region Taking Damage
+    //Om damage te krijgen als de player de tonnen aan raakt
     private int TakeDamage(int damage)
     {
-        return damage;
+        return m_playerstats.m_Health -= damage;
     }
-
+    #endregion
 }

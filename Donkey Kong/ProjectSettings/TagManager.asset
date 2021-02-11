@@ -8,6 +8,7 @@ TagManager:
   - Ladder
   - Projectile_D
   - Projectile_X
+  - Pointer
   layers:
   - Default
   - TransparentFX
