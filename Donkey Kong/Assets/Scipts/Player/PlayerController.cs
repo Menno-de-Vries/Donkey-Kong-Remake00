@@ -62,6 +62,12 @@ public class PlayerController : MonoBehaviour
         {
             m_playerstats.JumpAllowed = true;
         }
+
+        if (collision.gameObject.CompareTag("Projectile_D"))
+        {
+            TakeDamage(m_playerstats.m_Health -1);
+        }
+
     }
 
     private void JumpNow()
@@ -89,4 +95,10 @@ public class PlayerController : MonoBehaviour
         }
     }
     #endregion
+
+    private int TakeDamage(int damage)
+    {
+        return damage;
+    }
+
 }
