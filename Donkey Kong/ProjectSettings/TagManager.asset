@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ground
   - Ladder
+  - Projectile_D
+  - Projectile_X
   layers:
   - Default
   - TransparentFX
