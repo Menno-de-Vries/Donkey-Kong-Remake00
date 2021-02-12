@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        m_playerstats.m_Health = 3;
         rb = GetComponent<Rigidbody2D>();
         controller = FindObjectOfType<GameController>();
     }
@@ -77,6 +78,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Projectile_D"))
         {
             TakeDamage(1);
+            collision.gameObject.SetActive(true);
         }
 
     }
@@ -89,6 +91,7 @@ public class PlayerController : MonoBehaviour
         {
             print("jump");
             rb.AddForce(Up);
+            m_playerstats.m_GoingUpTheLadder = false;
             m_playerstats.JumpAllowed = false;
         }
     }
