@@ -22,6 +22,11 @@ public class Scenemanagement : MonoBehaviour
         SceneManager.LoadScene("Main Scene Storm");
     }
 
+    public void LoadLevelMenu()
+    {
+        SceneManager.LoadScene("Start Screen");
+    }
+
     public void Exit()
     {
         Application.Quit();
