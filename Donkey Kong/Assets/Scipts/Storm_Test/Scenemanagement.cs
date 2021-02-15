@@ -31,4 +31,9 @@ public class Scenemanagement : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void ZA_WARUDO()
+    {
+        Time.timeScale = 1f;
+    }
 }
