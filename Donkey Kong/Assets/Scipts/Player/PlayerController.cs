@@ -15,6 +15,9 @@ public class PlayerController : MonoBehaviour
     //Scripts
     private GameController controller;
 
+    //Sprites
+    [SerializeField] private Sprite[] players;
+
     private void Start()
     {
         m_playerstats.m_Health = 3;
@@ -33,7 +36,7 @@ public class PlayerController : MonoBehaviour
         m_playerstats.axis.x = Input.GetAxisRaw("Horizontal");
         m_playerstats.axis.y = Input.GetAxisRaw("Vertical");
 
-        //Voor de beweging met als de player niet of wel collision heeft met een trigger van de ladder
+        //Voor de beweging met als de player en of er niet of wel collision is met een trigger van de ladder
         if (m_playerstats.m_GoingUpTheLadder == false)
         {
             rb.velocity = new Vector3(m_playerstats.axis.x * m_playerstats.m_Speed * Time.deltaTime, rb.velocity.y, 0);
@@ -48,6 +51,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ladder"))
         {
+            this.GetComponent<SpriteRenderer>().sprite = players[1];
             m_playerstats.m_GoingUpTheLadder = true;
             m_playerstats.JumpAllowed = true;
         }
@@ -63,6 +67,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ladder"))
         {
+            this.GetComponent<SpriteRenderer>().sprite = players[0];
             m_playerstats.m_GoingUpTheLadder = false;
         }
     }
@@ -77,8 +82,9 @@ public class PlayerController : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Projectile_D"))
         {
+            //Als de ton in aanraking komt met de player krijgt de player damage en word de ton gedestroyed
             TakeDamage(1);
-            collision.gameObject.SetActive(true);
+            Destroy(collision.gameObject);
         }
 
     }
@@ -100,7 +106,7 @@ public class PlayerController : MonoBehaviour
     #region Rotate with Movement
     private void RotatePlayer()
     {
-        //Welke kan de player moet op kijken
+        //Welke kant de player moet op kijken
         if (m_playerstats.axis.x > 0)
         {
             transform.rotation = new Quaternion(transform.rotation.x, 0, transform.rotation.z, transform.rotation.w);
@@ -119,4 +125,5 @@ public class PlayerController : MonoBehaviour
         return m_playerstats.m_Health -= damage;
     }
     #endregion
+
 }

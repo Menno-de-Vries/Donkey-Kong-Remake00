@@ -9,6 +9,7 @@ TagManager:
   - Projectile_D
   - Projectile_X
   - Pointer
+  - Deleter
   layers:
   - Default
   - TransparentFX

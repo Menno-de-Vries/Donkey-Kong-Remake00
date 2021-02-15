@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour
 
     public float Scoring(float score)
     {
+        //Word de scoren bij gehouden
         return amountOfPoints += score;
     }
 
