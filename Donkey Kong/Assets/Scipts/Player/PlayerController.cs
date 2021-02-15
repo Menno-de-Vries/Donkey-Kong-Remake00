@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Playerstate
+{ idle = 0, walking, ladder }
+
 [RequireComponent(typeof(Rigidbody2D))]
 
 public class PlayerController : MonoBehaviour
@@ -15,13 +18,17 @@ public class PlayerController : MonoBehaviour
     //Scripts
     private GameController controller;
 
-    //Sprites
-    [SerializeField] private Sprite[] players;
+    //Animator
+    private Animator anime;
+
+    //Enum
+    public Playerstate playerState;
 
     private void Start()
     {
         m_playerstats.m_Health = 3;
         rb = GetComponent<Rigidbody2D>();
+        anime = GetComponent<Animator>();
         controller = FindObjectOfType<GameController>();
     }
 
@@ -45,13 +52,30 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector3(m_playerstats.axis.x * m_playerstats.m_Speed * Time.deltaTime, m_playerstats.axis.y * m_playerstats.m_Speed * Time.deltaTime, 0);
         }
+
+        WalkingOrNot();
+
     }
+
+    #region Animation
+    private void WalkingOrNot()
+    {
+        if (m_playerstats.axis.x > 0 && m_playerstats.m_GoingUpTheLadder != true || m_playerstats.axis.x < 0 && m_playerstats.m_GoingUpTheLadder != true )
+        {
+            SetPlayerState(Playerstate.walking);
+        }
+        else if (m_playerstats.axis.x == 0 && m_playerstats.m_GoingUpTheLadder != true)
+        {
+            SetPlayerState(Playerstate.idle);
+        }
+    }
+    #endregion
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Ladder"))
         {
-            this.GetComponent<SpriteRenderer>().sprite = players[1];
+            SetPlayerState(Playerstate.ladder);
             m_playerstats.m_GoingUpTheLadder = true;
             m_playerstats.JumpAllowed = true;
         }
@@ -67,7 +91,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ladder"))
         {
-            this.GetComponent<SpriteRenderer>().sprite = players[0];
+            SetPlayerState(Playerstate.idle);
             m_playerstats.m_GoingUpTheLadder = false;
         }
     }
@@ -125,5 +149,11 @@ public class PlayerController : MonoBehaviour
         return m_playerstats.m_Health -= damage;
     }
     #endregion
+
+    public void SetPlayerState(Playerstate state)
+    {
+        playerState = state;
+        anime.SetInteger("PlayerState", (int)playerState);
+    }
 
 }
