@@ -19,17 +19,10 @@ public class UIShenanigans : MonoBehaviour
     {
         if (Input.GetKeyUp("escape") && visible == false) //Momenteel wordt dit scherm geactiveerd via de Esc toets.e
         {
-            //visible = true;
-            //UI.SetActive(true);
-            //Time.timeScale = 0f;
-            Menu_ON();
-            
+            Menu_ON();            
         }
         else if (Input.GetKeyUp("escape") && visible == true)
         {
-            //visible = false;
-            //UI.SetActive(false);
-            //Time.timeScale = 1f;
             Menu_OFF();
         }
         
