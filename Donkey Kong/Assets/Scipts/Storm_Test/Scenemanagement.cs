@@ -27,6 +27,11 @@ public class Scenemanagement : MonoBehaviour
         SceneManager.LoadScene("Start Screen");
     }
 
+    public void LoadLevelTrue()
+    {
+        SceneManager.LoadScene("Main Scene Menno");
+    }
+
     public void Exit()
     {
         Application.Quit();
