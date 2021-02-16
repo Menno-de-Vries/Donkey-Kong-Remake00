@@ -596,7 +596,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 500455073}
         m_TargetAssemblyTypeName: Scenemanagement, Assembly-CSharp
-        m_MethodName: LoadLevelTest
+        m_MethodName: LoadLevelTrue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
