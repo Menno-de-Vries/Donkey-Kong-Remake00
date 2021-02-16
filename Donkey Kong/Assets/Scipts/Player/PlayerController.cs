@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
     {
         JumpNow();
         RotatePlayer();
+        Debug.Log(m_playerstats.m_Health);
     }
 
     private void FixedUpdate()
