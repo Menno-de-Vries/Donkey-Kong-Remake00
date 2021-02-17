@@ -10,10 +10,16 @@ public class UIDeath : MonoBehaviour
     private m_PlayerScribtableObject m_playerHealth;
 
     // Start is called before the first frame update
+
+
+    private void Awake()
+    {
+        m_playerHealth = FindObjectOfType<m_PlayerScribtableObject>();
+    }
     void Start()
     {
         UI.SetActive(false);
-        m_playerHealth = FindObjectOfType<m_PlayerScribtableObject>();
+        //m_playerHealth = FindObjectOfType<m_PlayerScribtableObject>();
     }
 
     // Update is called once per frame
