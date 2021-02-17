@@ -24,9 +24,17 @@ public class PlayerController : MonoBehaviour
     //Enum
     public Playerstate playerState;
 
+    //Int
+    public int currentHealth;
+
+    private void Awake()
+    {
+        Time.timeScale = 1;
+    }
+
     private void Start()
     {
-        m_playerstats.m_Health = 3;
+        currentHealth = m_playerstats.m_Health;
         rb = GetComponent<Rigidbody2D>();
         anime = GetComponent<Animator>();
         controller = FindObjectOfType<GameController>();
@@ -36,7 +44,7 @@ public class PlayerController : MonoBehaviour
     {
         JumpNow();
         RotatePlayer();
-        Debug.Log(m_playerstats.m_Health);
+        Debug.Log(currentHealth);
     }
 
     private void FixedUpdate()
@@ -147,7 +155,7 @@ public class PlayerController : MonoBehaviour
     //Om damage te krijgen als de player de tonnen aan raakt
     private int TakeDamage(int damage)
     {
-        return m_playerstats.m_Health -= damage;
+        return currentHealth -= damage;
     }
     #endregion
 
