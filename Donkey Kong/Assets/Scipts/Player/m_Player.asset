@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Speed: 200
   m_Jumphight: 375
-  JumpAllowed: 0
+  JumpAllowed: 1
   m_GoingUpTheLadder: 0
   m_Health: 3
   axis: {x: 0, y: 0}
