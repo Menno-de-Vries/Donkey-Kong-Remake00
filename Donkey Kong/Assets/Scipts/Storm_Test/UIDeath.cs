@@ -25,4 +25,6 @@ public class UIDeath : MonoBehaviour
             Time.timeScale = 0f;
         }
     }
+
+   
 }
