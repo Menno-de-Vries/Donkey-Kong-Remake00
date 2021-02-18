@@ -374,7 +374,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5382859754693943092, guid: c58703e678462b8488f0117b94442d31, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.07
+      value: 4.38
       objectReference: {fileID: 0}
     - target: {fileID: 5382859754693943092, guid: c58703e678462b8488f0117b94442d31, type: 3}
       propertyPath: m_LocalPosition.y
@@ -414,7 +414,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5382859754693943093, guid: c58703e678462b8488f0117b94442d31, type: 3}
       propertyPath: movingSpeed
-      value: 5
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5382859754693943094, guid: c58703e678462b8488f0117b94442d31, type: 3}
       propertyPath: m_Icon
@@ -799,7 +799,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &175394253
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1157,11 +1157,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5382859754693943092, guid: c58703e678462b8488f0117b94442d31, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4
+      value: 4.13
       objectReference: {fileID: 0}
     - target: {fileID: 5382859754693943092, guid: c58703e678462b8488f0117b94442d31, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.17
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 5382859754693943092, guid: c58703e678462b8488f0117b94442d31, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1197,7 +1197,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5382859754693943093, guid: c58703e678462b8488f0117b94442d31, type: 3}
       propertyPath: movingSpeed
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5382859754693943094, guid: c58703e678462b8488f0117b94442d31, type: 3}
       propertyPath: m_Name
@@ -1309,11 +1309,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5382859754693943092, guid: c58703e678462b8488f0117b94442d31, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.22
+      value: -6.69
       objectReference: {fileID: 0}
     - target: {fileID: 5382859754693943092, guid: c58703e678462b8488f0117b94442d31, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.48
+      value: -3.32
       objectReference: {fileID: 0}
     - target: {fileID: 5382859754693943092, guid: c58703e678462b8488f0117b94442d31, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1349,7 +1349,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5382859754693943093, guid: c58703e678462b8488f0117b94442d31, type: 3}
       propertyPath: movingSpeed
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5382859754693943094, guid: c58703e678462b8488f0117b94442d31, type: 3}
       propertyPath: m_Icon
@@ -1782,7 +1782,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 877594107}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.361, y: -11.67, z: 0}
+  m_LocalPosition: {x: -6.56, y: -11.67, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 248872381}
@@ -2485,7 +2485,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &1977429005
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2796,11 +2796,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5382859754693943092, guid: c58703e678462b8488f0117b94442d31, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.31
+      value: -7.19
       objectReference: {fileID: 0}
     - target: {fileID: 5382859754693943092, guid: c58703e678462b8488f0117b94442d31, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.15
+      value: 2.65
       objectReference: {fileID: 0}
     - target: {fileID: 5382859754693943092, guid: c58703e678462b8488f0117b94442d31, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2836,7 +2836,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5382859754693943093, guid: c58703e678462b8488f0117b94442d31, type: 3}
       propertyPath: movingSpeed
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5382859754693943094, guid: c58703e678462b8488f0117b94442d31, type: 3}
       propertyPath: m_Name
