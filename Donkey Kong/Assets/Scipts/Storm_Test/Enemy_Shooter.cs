@@ -15,6 +15,7 @@ public class Enemy_Shooter : MonoBehaviour
     void Start()
     {
         Spawn = transform.position;
+        Instantiate(Projectile, Spawn, Quaternion.identity);
     }
 
     // Update is called once per frame
