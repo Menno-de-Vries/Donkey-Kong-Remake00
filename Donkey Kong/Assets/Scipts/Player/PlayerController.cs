@@ -27,6 +27,15 @@ public class PlayerController : MonoBehaviour
     //Int
     public int currentHealth;
 
+    //GameObject
+    [SerializeField] private GameObject[] swords;
+
+    //Float
+    private float timer;
+
+    //Bool
+    private bool swordAttackIsPossible = false;
+
     private void Awake()
     {
         Time.timeScale = 1;
@@ -44,6 +53,7 @@ public class PlayerController : MonoBehaviour
     {
         JumpNow();
         RotatePlayer();
+        transform.position = new Vector2(Mathf.Clamp(transform.position.x, -6, 9), Mathf.Clamp(transform.position.y, -11f, 20f));
         Debug.Log(currentHealth);
     }
 
@@ -164,5 +174,26 @@ public class PlayerController : MonoBehaviour
         playerState = state;
         anime.SetInteger("PlayerState", (int)playerState);
     }
+
+    #region Sword Attack
+
+    private void SwordAttack()
+    {
+        if (swordAttackIsPossible == true)
+        {
+
+        }
+    }
+
+    private void SwordOn()
+    {
+        swords[1].SetActive(true);
+    }
+    private void SwordOff()
+    {
+        swords[1].SetActive(false);
+    }
+
+    #endregion
 
 }
