@@ -36,6 +36,9 @@ public class PlayerController : MonoBehaviour
     //Bool
     [SerializeField] private bool swordAttackIsPossible = false;
 
+    //Audio
+    [SerializeField] public AudioClip[] sounds;
+
     private void Awake()
     {
         Time.timeScale = 1;
@@ -103,6 +106,14 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Pointer"))
         {
             controller.Scoring(10);
+            AudioSource.PlayClipAtPoint(sounds[3], transform.position);
+        }
+
+        if (collision.gameObject.CompareTag("Projectile_X"))
+        {
+            //Als de ton in aanraking komt met de player krijgt de player damage en word de ton gedestroyed
+            TakeDamage(1);
+            Destroy(collision.gameObject);
         }
 
     }
@@ -128,6 +139,7 @@ public class PlayerController : MonoBehaviour
         {
             //Als de ton in aanraking komt met de player krijgt de player damage en word de ton gedestroyed
             TakeDamage(1);
+            AudioSource.PlayClipAtPoint(sounds[0], transform.position);
             Destroy(collision.gameObject);
         }
 
@@ -141,6 +153,7 @@ public class PlayerController : MonoBehaviour
         {
             print("jump");
             rb.AddForce(Up);
+            AudioSource.PlayClipAtPoint(sounds[1], transform.position);
             m_playerstats.m_GoingUpTheLadder = false;
             m_playerstats.JumpAllowed = false;
         }
