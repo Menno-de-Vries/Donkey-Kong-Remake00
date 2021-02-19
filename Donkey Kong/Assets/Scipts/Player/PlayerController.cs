@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
     private float timer;
 
     //Bool
-    private bool swordAttackIsPossible = false;
+    [SerializeField] private bool swordAttackIsPossible = false;
 
     private void Awake()
     {
@@ -54,6 +54,7 @@ public class PlayerController : MonoBehaviour
         JumpNow();
         RotatePlayer();
         transform.position = new Vector2(Mathf.Clamp(transform.position.x, -6, 9), Mathf.Clamp(transform.position.y, -11f, 20f));
+        SwordAttack();
         Debug.Log(currentHealth);
     }
 
@@ -177,21 +178,39 @@ public class PlayerController : MonoBehaviour
 
     #region Sword Attack
 
+    private float waitForSeconds = 0;
+
     private void SwordAttack()
     {
         if (swordAttackIsPossible == true)
         {
-
+            timer += Time.deltaTime;
+            waitForSeconds += Time.deltaTime;
         }
+
+        if (swordAttackIsPossible == true && waitForSeconds > 0.2f)
+        {
+            SwordToggle();
+            waitForSeconds = 0;
+        }
+
+        if (timer >= 4)
+        {
+            SwordOff();
+            timer = 0;
+            swordAttackIsPossible = false;
+        }
+
     }
 
-    private void SwordOn()
+    private void SwordToggle()
     {
-        swords[1].SetActive(true);
+        swords[0].SetActive(!swords[0].activeSelf);
     }
+
     private void SwordOff()
     {
-        swords[1].SetActive(false);
+        swords[0].SetActive(false);
     }
 
     #endregion
