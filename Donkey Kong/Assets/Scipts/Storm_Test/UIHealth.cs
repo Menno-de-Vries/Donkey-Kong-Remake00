@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UIHealth : MonoBehaviour
 {
-
+    [SerializeField] GameObject EmptyHP;
     [SerializeField] GameObject HP1;
     [SerializeField] GameObject HP2;
     [SerializeField] GameObject HP3;
@@ -32,6 +32,7 @@ public class UIHealth : MonoBehaviour
         if (m_playerHealth.currentHealth < 1)
         {
             HP1.SetActive(false);
+            EmptyHP.SetActive(false);
         }
     }
 }
