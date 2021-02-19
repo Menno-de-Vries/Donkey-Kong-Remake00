@@ -5,12 +5,13 @@ using UnityEngine;
 public class Win : MonoBehaviour
 {
 
+    [SerializeField] GameObject UIwin;
     [SerializeField] GameObject UI;
 
     // Start is called before the first frame update
     void Start()
     {
-        UI.SetActive(false);
+        UIwin.SetActive(false);
     }
 
     // Update is called once per frame
@@ -21,7 +22,8 @@ public class Win : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        UI.SetActive(true);
+        UIwin.SetActive(true);
         Time.timeScale = 0f;
+        UI.SetActive(false);
     }
 }
